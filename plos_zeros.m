@@ -14,10 +14,11 @@ den = [J, (C + (Kt*Ke)/Ra), M*g*d];
 G = tf(num, den);
 
 % Ganho estático e polo dominante
-K_aprox = dcgain(G)
-p = pole(G)
-tau = 1 / abs(p(1))  % Constante de tempo estimada
+K_aprox = dcgain(G);
+p = pole(G);
+tau = 1 / abs(p(1));  % Constante de tempo estimada
 G_aprox = tf(K_aprox, [tau 1]);
+
 figure;
 pzmap(G);
 title('Mapa Polo-Zero da Função de Transferência Completa');
